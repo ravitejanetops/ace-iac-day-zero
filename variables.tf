@@ -10,6 +10,10 @@ variable "controller_ip" {
   default = "3.221.187.187"
 }
 
+variable "ace_password" {
+ default = "Hadvitha@2022" 
+}
+
 variable "aws_account_name" {
   default = "aws-account"
 }
