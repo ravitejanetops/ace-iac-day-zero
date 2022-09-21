@@ -35,7 +35,7 @@ module "security_group_1" {
   version             = "~> 3.0"
   name                = "security_group_spoke1"
   description         = "Security group for example usage with EC2 instance"
-  vpc_id              = vpc-078c05e36be0479fc
+  vpc_id              = module.aws_spoke_1.vpc.vpc_id
   ingress_cidr_blocks = ["0.0.0.0/0"]
   ingress_rules       = ["http-80-tcp", "ssh-tcp", "all-icmp"]
   egress_rules        = ["all-all"]
@@ -48,9 +48,9 @@ module "aws_spoke_bastion" {
   source                      = "terraform-aws-modules/ec2-instance/aws"
   version                     = "2.21.0"
   instance_type               = var.aws_test_instance_size
-  name                        = "$ravi-bastion"
+  name                        = "${var.aws_spoke1_name}-bastion"
   ami                         = data.aws_ami.ubuntu.id
-  key_name                    = Ohio-pair
+  key_name                    = var.ace_ec2_key_name
   instance_count              = 1
   subnet_id                   = module.aws_spoke_1.vpc.public_subnets[0].subnet_id
   vpc_security_group_ids      = [module.security_group_1.this_security_group_id]
