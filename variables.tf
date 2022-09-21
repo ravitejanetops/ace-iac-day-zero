@@ -3,12 +3,11 @@ variable "username" {
 }
 
 variable "password" {
+  default = "Hadvitha@2022"
 }
 
 variable "controller_ip" {
-}
-
-variable "ace_password" {
+  default = "3.221.187.187"
 }
 
 variable "aws_account_name" {
@@ -56,15 +55,20 @@ variable "azure_account_name" {
 }
 
 variable "azure_subscription_id" {
+   default = "42962a1d-b789-4805-8ec6-f3f3951d3049"
+  
 }
 
 variable "azure_client_id" {
+   default = "50999fde-0900-407c-8978-a3c7d391402a"
 }
 
 variable "azure_client_secret" {
+   default = "ZWh8Q~diAX99foFyZnlX9KJ.Lwljmon~0LU_Oaqp"
 }
 
 variable "azure_tenant_id" {
+ default = "516e891b-c0ea-4b88-ab2b-a5d6e041bc7a"
 }
 
 variable "azure_spoke_instance_size" {
